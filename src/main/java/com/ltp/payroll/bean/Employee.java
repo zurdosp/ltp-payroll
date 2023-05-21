@@ -1,29 +1,25 @@
 package com.ltp.payroll.bean;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Getter;
 import lombok.Setter;
 
-@Document(collection = "budgets")
+@Document(collection = "employees")
 @Getter @Setter
-public class Budget {
+public class Employee {
 
 	private String id;
 	
-	private String description;
-	
-	private String idPayRoll;
-	
 	private String name;
 	
-	private String type;
+	private Date birthDate;
 	
-	private BigDecimal value;
+	private String identification;
 	
-	private String status;
-	
+	private BigDecimal salary;
 	
 }

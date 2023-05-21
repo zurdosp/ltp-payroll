@@ -18,4 +18,8 @@ public class BudgetService {
 		return repository.findAll();
 	}
 	
+	public Budget createBurget(Budget budget) {
+		return repository.save(budget);
+	}
+	
 }
