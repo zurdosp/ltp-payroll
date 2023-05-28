@@ -1,7 +1,8 @@
 package com.ltp.payroll.bean;
 
+import java.math.BigDecimal;
 import java.util.Date;
-import java.util.Map;
+import java.util.List;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -13,12 +14,22 @@ import lombok.Setter;
 public class PayRollResult {
 
 	private String employeeId;
+
+	private String employeeName;
+	
+	private String identification;
 	
 	private Date processDate;
+	
+	private BigDecimal netSalary = new BigDecimal(0);
+	
+	private BigDecimal adds = new BigDecimal(0);
+	
+	private BigDecimal discounts = new BigDecimal(0);
 	
 	/**
 	 * Map with key: id of budget and value: the result of process
 	 */
-	private Map<String, Object> budgetResult; 
+	private List<BudgetResult> budgetResultList; 
 	
 }

@@ -1,5 +1,7 @@
 package com.ltp.payroll.controller;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ltp.payroll.bean.PayRollParams;
-import com.ltp.payroll.proxy.EmployeeProxy;
-import com.ltp.payroll.service.PayRollServices;
+import com.ltp.payroll.bean.PayRollResult;
+import com.ltp.payroll.service.PayRollProcessServices;
 
 @RestController
 public class PayRollController {
@@ -19,10 +21,10 @@ public class PayRollController {
 	private Logger logger = LoggerFactory.getLogger(PayRollController.class); 
 	
 	@Autowired
-	private PayRollServices payRollServices;
+	private Environment environment;
 	
 	@Autowired
-	private Environment environment;
+	private PayRollProcessServices payRollProcessServices;
 	
 	@GetMapping("/payroll")
 	public void getPayrolls() {
@@ -35,11 +37,9 @@ public class PayRollController {
 	}
 	
 	@PostMapping("/process-payroll")
-	public void processPayroll(@RequestBody PayRollParams payRollParams) {
+	public List<PayRollResult> processPayroll(@RequestBody PayRollParams payRollParams) {
 		logger.info("processPayroll called with {} to {}", "", "");
-		logger.info(payRollServices.getAllEmployees().get(0).getName());
-		// find all employees
-		// apply all budgets
-		// build payRollResult
+		return payRollProcessServices.processPayroll(payRollParams);
+
 	}
 }

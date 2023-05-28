@@ -26,7 +26,7 @@ public class EmployeeController {
 	@GetMapping("/employee")
 	public List<Employee> listEmployee(){
 		logger.info("listEmployee called with {} to {}", "", "");
-		return employeeService.findAllEmployees();
+		return employeeService.getAllEmployees();
 	}
 	
 	@PostMapping("/employee")

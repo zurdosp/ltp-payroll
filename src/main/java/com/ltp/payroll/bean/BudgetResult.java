@@ -1,6 +1,8 @@
 package com.ltp.payroll.bean;
 
 import java.math.BigDecimal;
+import java.util.Date;
+import java.util.Map;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -9,15 +11,11 @@ import com.ltp.payroll.enums.BudgetOperatorEnum;
 import lombok.Getter;
 import lombok.Setter;
 
-@Document(collection = "budgets")
+@Document(collection = "BudgetResult")
 @Getter @Setter
-public class Budget {
+public class BudgetResult {
 
-	private String id;
-	
-	private String description;
-	
-	private String idPayRoll;
+	private String  idPayRollResult;
 	
 	private String name;
 	
@@ -25,11 +23,10 @@ public class Budget {
 	
 	private BigDecimal value;
 	
-	private String status;
+	private BigDecimal result;
 	
 	private BudgetOperatorEnum budgetOperatorEnum;
 	
 	private String classNameCalculator;
-	
 	
 }
