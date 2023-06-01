@@ -107,6 +107,7 @@ public class PayRollProcessServices {
 		} else if (budget.getBudgetOperatorEnum().getName().equals("DEDUCTION")) {
 			payRollResult.setDiscounts(payRollResult.getDiscounts().add(finalValue));
 		}
+		payRollResult.setNetSalary(payRollResult.getGrossSalary().add(payRollResult.getAdds()).subtract(payRollResult.getDiscounts()));
 	}
 	
 
@@ -114,7 +115,7 @@ public class PayRollProcessServices {
 	private void setDataPayRollResult(PayRollResult payRollResult, Employee employee) {
 		payRollResult.setEmployeeId(employee.getId());
 		payRollResult.setProcessDate(new Date());
-		payRollResult.setNetSalary(employee.getSalary());
+		payRollResult.setGrossSalary(employee.getSalary());
 		payRollResult.setEmployeeName(employee.getName());
 		payRollResult.setIdentification(employee.getIdentification());
 	}

@@ -21,15 +21,18 @@ public class PayRollResult {
 	
 	private Date processDate;
 	
-	private BigDecimal netSalary = new BigDecimal(0);
+	private BigDecimal grossSalary = new BigDecimal(0);
 	
 	private BigDecimal adds = new BigDecimal(0);
 	
 	private BigDecimal discounts = new BigDecimal(0);
 	
+	private BigDecimal netSalary = new BigDecimal(0);
+	
 	/**
 	 * Map with key: id of budget and value: the result of process
 	 */
 	private List<BudgetResult> budgetResultList; 
+	
 	
 }

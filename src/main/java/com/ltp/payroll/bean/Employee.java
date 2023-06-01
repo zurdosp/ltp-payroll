@@ -22,4 +22,6 @@ public class Employee {
 	
 	private BigDecimal salary;
 	
+	private Integer monthWorkedQuantity;
+	
 }
