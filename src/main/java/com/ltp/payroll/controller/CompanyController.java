@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ltp.payroll.bean.Company;
 import com.ltp.payroll.service.CompanyService;
 
+import jakarta.validation.Valid;
+
 @RestController
 public class CompanyController {
 
@@ -32,7 +34,7 @@ public class CompanyController {
 	}
 	
 	@PostMapping("/company")
-	public ResponseEntity<Object> createCompany(@RequestBody Company company){
+	public ResponseEntity<Object> createCompany(@Valid @RequestBody Company company){
 		logger.info("Company called with company data", company.toString());
 		companyService.createCompany(company);
 		return ResponseEntity.status(HttpStatus.CREATED).body(null);
